@@ -63,14 +63,19 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\ChatController.cs" />
-    <Compile Include="Assets\ChatExampleGUI.cs" />
+    <Compile Include="Assets\CharacterSelection.cs" />
+    <Compile Include="Assets\E09 Character Controller\Assets\Scripts\PlayerController.cs" />
+    <Compile Include="Assets\E09 Character Controller\Assets\Scripts\ThirdPersonCamera.cs" />
+    <Compile Include="Assets\My Scripts\ChatController.cs" />
+    <Compile Include="Assets\My Scripts\ChatExampleGUI.cs" />
     <Compile Include="Assets\My Scripts\ExtensionMethods.cs" />
     <Compile Include="Assets\My Scripts\MLAPI_Chat.cs" />
     <Compile Include="Assets\My Scripts\MLAPI_PlayersInSession.cs" />
+    <Compile Include="Assets\My Scripts\MyChatNetworkBehaviour.cs" />
     <Compile Include="Assets\My Scripts\MyGUI_Instance.cs" />
     <Compile Include="Assets\My Scripts\MyNetworkManager.cs" />
     <Compile Include="Assets\My Scripts\MyStringExtenstions.cs" />
+    <Compile Include="Assets\My Scripts\NetManagerHud.cs" />
     <Compile Include="Assets\My Scripts\PlayerLogin.cs" />
     <Compile Include="Assets\My Scripts\PlayerPauseMenu.cs" />
     <Compile Include="Assets\My Scripts\PlayerProfile.cs" />
@@ -84,27 +89,28 @@
     <Compile Include="Assets\My Scripts\Tabber-master\Reorderable-List\List\Attributes\ReorderableAttribute.cs" />
     <Compile Include="Assets\My Scripts\Tabber-master\Reorderable-List\List\ReorderableArray.cs" />
     <Compile Include="Assets\My Scripts\Tabber-master\Scripts\Tabber.cs" />
-    <Compile Include="Assets\MyChatNetworkBehaviour.cs" />
-    <Compile Include="Assets\NetManagerHud.cs" />
-    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
-    <None Include="Assets\MLAPI\Lib\MLAPI.xml" />
-    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />
-    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap.shader" />
-    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
-    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface.shader" />
-    <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
-    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
-    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF.shader" />
-    <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
-    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Properties.cginc" />
-    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Surface.cginc" />
-    <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
-    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Masking.shader" />
-    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF Overlay.shader" />
-    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Mobile.shader" />
-    <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
-    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile.shader" />
-    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Sprite.shader" />
+    <None Include="Assets\E09 Character Controller\Assets\Standard Assets\Prototyping\Shaders\WorldCoordDiffuse.shader" />
+    <None Include="Assets\AddOn\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
+    <None Include="Assets\AddOn\MLAPI\Lib\MLAPI.xml" />
+    <None Include="Assets\AddOn\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />
+    <None Include="Assets\AddOn\TextMesh Pro\Resources\Shaders\TMP_Bitmap.shader" />
+    <None Include="Assets\AddOn\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
+    <None Include="Assets\My Scripts\New Text Document.txt" />
+    <None Include="Assets\AddOn\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface.shader" />
+    <None Include="Assets\AddOn\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
+    <None Include="Assets\AddOn\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
+    <None Include="Assets\AddOn\TextMesh Pro\Resources\Shaders\TMP_SDF.shader" />
+    <None Include="Assets\AddOn\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
+    <None Include="Assets\AddOn\TextMesh Pro\Resources\Shaders\TMPro_Properties.cginc" />
+    <None Include="Assets\AddOn\TextMesh Pro\Resources\Shaders\TMPro_Surface.cginc" />
+    <None Include="Assets\AddOn\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
+    <None Include="Assets\AddOn\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Masking.shader" />
+    <None Include="Assets\E09 Character Controller\ProjectSettings\ProjectVersion.txt" />
+    <None Include="Assets\AddOn\TextMesh Pro\Resources\Shaders\TMP_SDF Overlay.shader" />
+    <None Include="Assets\AddOn\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Mobile.shader" />
+    <None Include="Assets\AddOn\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
+    <None Include="Assets\AddOn\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile.shader" />
+    <None Include="Assets\AddOn\TextMesh Pro\Resources\Shaders\TMP_Sprite.shader" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/devbeebee/Desktop/MLAPI_Tests/Unity3D-MLAPI/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
@@ -310,7 +316,7 @@
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.3.0f3/Editor/Data/Managed/UnityEngine/UnityEngine.XRModule.dll</HintPath>
     </Reference>
     <Reference Include="MLAPI">
-      <HintPath>C:/Users/devbeebee/Desktop/MLAPI_Tests/Unity3D-MLAPI/Assets/MLAPI/Lib/MLAPI.dll</HintPath>
+      <HintPath>C:/Users/devbeebee/Desktop/MLAPI_Tests/Unity3D-MLAPI/Assets/AddOn/MLAPI/Lib/MLAPI.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.3.0f3/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>

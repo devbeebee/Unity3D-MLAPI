@@ -1393,7 +1393,7 @@ MonoBehaviour:
   m_Text: Enter Message...
   m_CaretBlinkRate: 0.85
   m_CaretWidth: 1
-  m_ReadOnly: 1
+  m_ReadOnly: 0
 --- !u!114 &1928655152639460182
 MonoBehaviour:
   m_ObjectHideFlags: 0

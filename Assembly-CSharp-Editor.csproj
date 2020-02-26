@@ -305,7 +305,7 @@
       <HintPath>C:/Program Files (x86)/Microsoft Visual Studio Tools for Unity/16.0/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
     </Reference>
     <Reference Include="MLAPI">
-      <HintPath>C:/Users/devbeebee/Desktop/MLAPI_Tests/Unity3D-MLAPI/Assets/MLAPI/Lib/MLAPI.dll</HintPath>
+      <HintPath>C:/Users/devbeebee/Desktop/MLAPI_Tests/Unity3D-MLAPI/Assets/AddOn/MLAPI/Lib/MLAPI.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework">
       <HintPath>C:/Users/devbeebee/Desktop/MLAPI_Tests/Unity3D-MLAPI/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll</HintPath>
