@@ -3,23 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public enum ChatCommandSymbol { ExcalmationPoint ,QuestionMark};
 [System.Serializable]
 public class ChatCommand 
 {
-    public ChatCommandSymbol commandSymbol = ChatCommandSymbol.ExcalmationPoint;
     public string CommandKey = "!Example";
-    public UnityEvent EventsToCall;
+    public UnityEvent EventsToCall = new UnityEvent();
 }
 public class ChatScriptable : MonoBehaviour
 {
     public static ChatScriptable Instance { get { return _instance; } }
     static ChatScriptable _instance;
     [SerializeField]
-    List<ChatCommand> chatCommands = new List<ChatCommand>();
-    // Update is called once per frame
+    List<ChatCommand> Commands = new List<ChatCommand>();
+
     private void Awake()
     {
+        Commands.Add(DefaultHelp());
         if (_instance != null && _instance != this)
         {
             Destroy(this.gameObject);
@@ -30,16 +29,23 @@ public class ChatScriptable : MonoBehaviour
         }
 
     }
+    ChatCommand DefaultHelp() 
+    {
+        ChatCommand h = new ChatCommand();
+        h.CommandKey = "?Help";
+        h.EventsToCall.AddListener(HELP_Chat);
+        return h;
+    }
     public bool CallCommand(string command)
     {
-        foreach (var item in chatCommands)
+        foreach (var item in Commands)
         {
             if (command.StartsWith("!")|| command.StartsWith("?"))
             {
                 if (item.CommandKey == command)
                 {
+                    ChatController.Instance.SendOutMessage($"Command||GAMERTAG||{Commands[0].EventsToCall.GetPersistentMethodName(0)}");
                     item.EventsToCall.Invoke();
-                    ChatController.Instance.SendOutMessage($"Command||GAMERTAG||{chatCommands[0].EventsToCall.GetPersistentMethodName(0)}");
                     return true;
                 }
             }              
@@ -49,8 +55,7 @@ public class ChatScriptable : MonoBehaviour
 
     public void HELP_Chat()
     {
-        ChatController.Instance.SendOutMessage($"Command||GAMERTAG||Hello world !");
-        ChatController.Instance.SendOutMessage($"Command||GAMERTAG||Can't reall help with much there is one other command");
-        ChatController.Instance.SendOutMessage($"Command||GAMERTAG||type !stats");
+        string abc = "\nHello world ! \nCan't reall help with much there is one other command\ntype !stats";
+        ChatController.Instance.SendOutMessage($"Command||GAMERTAG||<color =black>{abc}</color>");
     }
 }
