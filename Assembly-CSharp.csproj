@@ -79,8 +79,10 @@
     <Compile Include="Assets\Chat\My Chat Scrips\MyChatNetworkBehaviour.cs" />
     <Compile Include="Assets\Chat\Players In Session\MLAPI_PlayersInSession.cs" />
     <Compile Include="Assets\CursorController.cs" />
+    <Compile Include="Assets\FireworkNetworkedObject.cs" />
     <Compile Include="Assets\Network\MyNetworkManager.cs" />
     <Compile Include="Assets\Network\NetManagerHud.cs" />
+    <Compile Include="Assets\NetworkFirework.cs" />
     <Compile Include="Assets\Player Login\Scripts\PlayerLogin.cs" />
     <Compile Include="Assets\Player Pause\PlayerPauseMenu.cs" />
     <Compile Include="Assets\Player Profile\PlayerProfile.cs" />
@@ -93,7 +95,6 @@
     <Compile Include="Assets\SampleScenes\Scripts\ParticleSceneControls.cs" />
     <Compile Include="Assets\SampleScenes\Scripts\PlaceTargetWithMouse.cs" />
     <Compile Include="Assets\SampleScenes\Scripts\SlowMoButton.cs" />
-    <Compile Include="Assets\SpawnNetworkedObject.cs" />
     <Compile Include="Assets\Utils\ExtensionMethods.cs" />
     <Compile Include="Assets\Utils\MyGUI_Instance.cs" />
     <Compile Include="Assets\Utils\MyStringExtenstions.cs" />

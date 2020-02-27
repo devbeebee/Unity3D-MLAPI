@@ -7,7 +7,7 @@ public static class ExtensionMethods
 
     public static Vector3 RandomPos(float min,float max)
     {
-        return new Vector3(Random.Range(min, max), 1, Random.Range(min, max));
+        return new Vector3(Random.Range(min, max), 0, Random.Range(min, max));
     }
 
     public static Quaternion PointOnCircle2D(float p, int steps)
