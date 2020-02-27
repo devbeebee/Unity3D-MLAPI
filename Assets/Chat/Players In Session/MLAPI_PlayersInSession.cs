@@ -39,7 +39,6 @@ public class MLAPI_PlayersInSession : NetworkedBehaviour
     {
         if (IsClient)
         {
-            Debug.Log("CALLED 0");
             AddPlayer($"{PlayerProfile.Instance.Gamer_Profile.GamerTag}   ID = {NetworkingManager.Singleton.ServerClientId}");
             ChatController.Instance.SendOutMessage($"SYSTEM||GAMERTAG||<color=#00ff00ff> {PlayerProfile.Instance.Gamer_Profile.GamerTag}</color><color=black> Has Connected </color>");
         }

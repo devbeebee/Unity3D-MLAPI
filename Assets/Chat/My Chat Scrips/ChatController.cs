@@ -23,10 +23,6 @@ public class ChatController : MyChatNetworkBehaviour
         {
             _instance = this;
         }
-
-    }
-    void Start()
-    {
         StartOnChangeListeners();
         inputField.characterLimit = maxInputLength;
         contentText = contentTransform.GetComponent<Text>();
@@ -73,7 +69,7 @@ public class ChatController : MyChatNetworkBehaviour
             AddMessage($"{ChatMessages[ChatMessages.Count - 1]}");
         });
     }
-    void AddMessage(string msg)
+    public void AddMessage(string msg)
     {
         string[] tempArr = MyStringExtenstions.SplitStringWithString(msg, "||GAMERTAG||");
         string sender = tempArr[0];

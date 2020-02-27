@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 
 [System.Serializable]
-public class ChatCommand 
+public class ChatCommand
 {
     public string CommandKey = "!Example";
     public UnityEvent EventsToCall = new UnityEvent();
@@ -15,10 +15,13 @@ public class ChatScriptable : MonoBehaviour
     static ChatScriptable _instance;
     [SerializeField]
     List<ChatCommand> Commands = new List<ChatCommand>();
-
+    [SerializeField]
+    [TextArea(5, 15)]
+    string HelpMessage = "";
     private void Awake()
     {
         Commands.Add(DefaultHelp());
+        Commands.Add(DefaultServer());
         if (_instance != null && _instance != this)
         {
             Destroy(this.gameObject);
@@ -27,35 +30,45 @@ public class ChatScriptable : MonoBehaviour
         {
             _instance = this;
         }
-
     }
-    ChatCommand DefaultHelp() 
+    private void Start()
     {
-        ChatCommand h = new ChatCommand();
-        h.CommandKey = "?Help";
-        h.EventsToCall.AddListener(HELP_Chat);
-        return h;
+        ChatController.Instance.AddMessage($"System Message||GAMERTAG||<color=#000000FF>Type </color><color=#E05656FF>?Help</color><color=#000000FF> to view Commands</color>");
+    }
+    ChatCommand DefaultHelp()
+    {
+        ChatCommand cc = new ChatCommand();
+        cc.CommandKey = "?help";
+        cc.EventsToCall.AddListener(HELP_Chat);
+        return cc;
+    }
+    ChatCommand DefaultServer()
+    {
+        ChatCommand cc = new ChatCommand();
+        cc.CommandKey = "?server";
+        cc.EventsToCall.AddListener(Server_Chat);
+        return cc;
     }
     public bool CallCommand(string command)
     {
         foreach (var item in Commands)
         {
-            if (command.StartsWith("!")|| command.StartsWith("?"))
+            if (item.CommandKey == command)
             {
-                if (item.CommandKey == command)
-                {
-                    ChatController.Instance.SendOutMessage($"Command||GAMERTAG||{Commands[0].EventsToCall.GetPersistentMethodName(0)}");
-                    item.EventsToCall.Invoke();
-                    return true;
-                }
-            }              
+                item.EventsToCall.Invoke();
+                return true;
+            }
         }
         return false;
     }
 
     public void HELP_Chat()
     {
-        string abc = "\nHello world ! \nCan't reall help with much there is one other command\ntype !stats";
-        ChatController.Instance.SendOutMessage($"Command||GAMERTAG||<color =black>{abc}</color>");
+        ChatController.Instance.AddMessage($"Command Call||GAMERTAG||<color=#000000FF>{HelpMessage}</color>");
+    }
+
+    public void Server_Chat()
+    {
+        ChatController.Instance.AddMessage($"System Message||GAMERTAG||<color=#000000FF>Server Owner TBA</color>");
     }
 }
