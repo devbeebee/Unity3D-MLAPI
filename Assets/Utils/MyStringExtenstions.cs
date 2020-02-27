@@ -6,4 +6,10 @@ public static class MyStringExtenstions
     {
         return toEdit.Split(new string[] { toSplitWith }, StringSplitOptions.None);
     }
+    public static string ReturnTimeAsString()
+    {
+        string time = "";
+        time = DateTime.Now.ToString("T");
+        return time;
+    }
 }

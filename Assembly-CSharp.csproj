@@ -78,11 +78,13 @@
     <Compile Include="Assets\Chat\My Chat Scrips\ChatExampleGUI.cs" />
     <Compile Include="Assets\Chat\My Chat Scrips\MyChatNetworkBehaviour.cs" />
     <Compile Include="Assets\Chat\Players In Session\MLAPI_PlayersInSession.cs" />
+    <Compile Include="Assets\CursorController.cs" />
     <Compile Include="Assets\Network\MyNetworkManager.cs" />
     <Compile Include="Assets\Network\NetManagerHud.cs" />
     <Compile Include="Assets\Player Login\Scripts\PlayerLogin.cs" />
     <Compile Include="Assets\Player Pause\PlayerPauseMenu.cs" />
     <Compile Include="Assets\Player Profile\PlayerProfile.cs" />
+    <Compile Include="Assets\PlayerNetworkStart.cs" />
     <Compile Include="Assets\Utils\ExtensionMethods.cs" />
     <Compile Include="Assets\Utils\MyGUI_Instance.cs" />
     <Compile Include="Assets\Utils\MyStringExtenstions.cs" />

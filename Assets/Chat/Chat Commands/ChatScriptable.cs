@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿using MLAPI;
+using MLAPI.Transports.UNET;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
@@ -9,7 +11,7 @@ public class ChatCommand
     public string CommandKey = "!Example";
     public UnityEvent EventsToCall = new UnityEvent();
 }
-public class ChatScriptable : MonoBehaviour
+public class ChatScriptable : NetworkedBehaviour
 {
     public static ChatScriptable Instance { get { return _instance; } }
     static ChatScriptable _instance;
@@ -18,10 +20,11 @@ public class ChatScriptable : MonoBehaviour
     [SerializeField]
     [TextArea(5, 15)]
     string HelpMessage = "";
+    UnetTransport unetTransport;
     private void Awake()
     {
         Commands.Add(DefaultHelp());
-        Commands.Add(DefaultServer());
+        Commands.Add(DefaultConnection());
         if (_instance != null && _instance != this)
         {
             Destroy(this.gameObject);
@@ -34,6 +37,7 @@ public class ChatScriptable : MonoBehaviour
     private void Start()
     {
         ChatController.Instance.AddMessage($"System Message||GAMERTAG||<color=#000000FF>Type </color><color=#E05656FF>?Help</color><color=#000000FF> to view Commands</color>");
+        unetTransport = NetworkingManager.Singleton.NetworkConfig.NetworkTransport.GetComponent<UnetTransport>();
     }
     ChatCommand DefaultHelp()
     {
@@ -42,11 +46,11 @@ public class ChatScriptable : MonoBehaviour
         cc.EventsToCall.AddListener(HELP_Chat);
         return cc;
     }
-    ChatCommand DefaultServer()
+    ChatCommand DefaultConnection()
     {
         ChatCommand cc = new ChatCommand();
-        cc.CommandKey = "?server";
-        cc.EventsToCall.AddListener(Server_Chat);
+        cc.CommandKey = "?conDetails";
+        cc.EventsToCall.AddListener(Connection_Chat);
         return cc;
     }
     public bool CallCommand(string command)
@@ -67,8 +71,8 @@ public class ChatScriptable : MonoBehaviour
         ChatController.Instance.AddMessage($"Command Call||GAMERTAG||<color=#000000FF>{HelpMessage}</color>");
     }
 
-    public void Server_Chat()
+    public void Connection_Chat()
     {
-        ChatController.Instance.AddMessage($"System Message||GAMERTAG||<color=#000000FF>Server Owner TBA</color>");
+        ChatController.Instance.AddMessage($"System Message||GAMERTAG||Connection Details<color=#000000FF>{unetTransport.ConnectAddress}:{unetTransport.ConnectPort}</color>");
     }
 }

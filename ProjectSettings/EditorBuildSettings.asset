@@ -9,6 +9,6 @@ EditorBuildSettings:
     path: Assets/Player Login/Scene/MultiplayerCreate&LoginForProfile.unity
     guid: c00fa29d477d58f4db0a3fdbc35a5176
   - enabled: 1
-    path: Assets/Chat/MultiplayerTestScene.unity
+    path: Assets/Scenes/MultiplayerTestScene.unity
     guid: eb43251d3261c2943817cdcb66bb2836
   m_configObjects: {}

@@ -74,16 +74,14 @@ public class ChatController : MyChatNetworkBehaviour
         string[] tempArr = MyStringExtenstions.SplitStringWithString(msg, "||GAMERTAG||");
         string sender = tempArr[0];
         string message = tempArr[1];
-        AddMessageToChat($" <color=#0000ffff>{DateTime.Now.Hour}:{DateTime.Now.Minute}:{DateTime.Now.Second}</color> <color=#ff0000ff>[{sender}]</color> = {message}");
+        AddMessageToChat($" <color=#0000ffff>{MyStringExtenstions.ReturnTimeAsString()}</color> <color=#ff0000ff>[{sender}]</color> = {message}");
     }
     public void SendOutMessage(string message)
     {
-        
-            if (!string.IsNullOrEmpty(message) && message.Length < maxInputLength)
-            {
-                ChatMessages.Add(message);
-            } 
-        
+        if (!string.IsNullOrEmpty(message) && message.Length < maxInputLength)
+        {
+            ChatMessages.Add(message);
+        }
     }
     public void SendOutMessageUI(string message)
     {
