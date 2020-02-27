@@ -54,7 +54,10 @@ public class ChatController : MyChatNetworkBehaviour
 
     public void ActiveButton()
     {
-        SendOutMessage($"{PlayerProfile.Instance.Gamer_Profile.GamerTag}||GAMERTAG||{inputField.text}");
+        if (!ChatScriptable.Instance.CallCommand(inputField.text))
+        {
+            SendOutMessage($"{PlayerProfile.Instance.Gamer_Profile.GamerTag}||GAMERTAG||{inputField.text}");
+        }
     }
     #region MLAPI FUNCTIONS
     NetworkedList<string> ChatMessages = new NetworkedList<string>(new MLAPI.NetworkedVar.NetworkedVarSettings()
@@ -79,10 +82,12 @@ public class ChatController : MyChatNetworkBehaviour
     }
     public void SendOutMessage(string message)
     {
-        if (!string.IsNullOrEmpty(message) && message.Length < maxInputLength)
-        {
-            ChatMessages.Add(message);
-        }
+        
+            if (!string.IsNullOrEmpty(message) && message.Length < maxInputLength)
+            {
+                ChatMessages.Add(message);
+            } 
+        
     }
     public void SendOutMessageUI(string message)
     {

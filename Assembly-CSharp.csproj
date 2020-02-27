@@ -63,9 +63,20 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\AddOn\Tabber-master\Reorderable-List\Example\Example.cs" />
+    <Compile Include="Assets\AddOn\Tabber-master\Reorderable-List\Example\GameObjectExample.cs" />
+    <Compile Include="Assets\AddOn\Tabber-master\Reorderable-List\Example\NameOverride.cs" />
+    <Compile Include="Assets\AddOn\Tabber-master\Reorderable-List\Example\NestedExample.cs" />
+    <Compile Include="Assets\AddOn\Tabber-master\Reorderable-List\Example\RecursionTest.cs" />
+    <Compile Include="Assets\AddOn\Tabber-master\Reorderable-List\Example\ScriptableObjectExample.cs" />
+    <Compile Include="Assets\AddOn\Tabber-master\Reorderable-List\Example\SurrogateTest.cs" />
+    <Compile Include="Assets\AddOn\Tabber-master\Reorderable-List\List\Attributes\ReorderableAttribute.cs" />
+    <Compile Include="Assets\AddOn\Tabber-master\Reorderable-List\List\ReorderableArray.cs" />
+    <Compile Include="Assets\AddOn\Tabber-master\Scripts\Tabber.cs" />
+    <Compile Include="Assets\Character Selection\E09 Character Controller\Assets\Scripts\PlayerController.cs" />
+    <Compile Include="Assets\Character Selection\E09 Character Controller\Assets\Scripts\ThirdPersonCamera.cs" />
     <Compile Include="Assets\CharacterSelection.cs" />
-    <Compile Include="Assets\E09 Character Controller\Assets\Scripts\PlayerController.cs" />
-    <Compile Include="Assets\E09 Character Controller\Assets\Scripts\ThirdPersonCamera.cs" />
+    <Compile Include="Assets\Chat\Chat Commands\ChatScriptable.cs" />
     <Compile Include="Assets\My Scripts\ChatController.cs" />
     <Compile Include="Assets\My Scripts\ChatExampleGUI.cs" />
     <Compile Include="Assets\My Scripts\ExtensionMethods.cs" />
@@ -76,20 +87,10 @@
     <Compile Include="Assets\My Scripts\MyNetworkManager.cs" />
     <Compile Include="Assets\My Scripts\MyStringExtenstions.cs" />
     <Compile Include="Assets\My Scripts\NetManagerHud.cs" />
-    <Compile Include="Assets\My Scripts\PlayerLogin.cs" />
     <Compile Include="Assets\My Scripts\PlayerPauseMenu.cs" />
-    <Compile Include="Assets\My Scripts\PlayerProfile.cs" />
-    <Compile Include="Assets\My Scripts\Tabber-master\Reorderable-List\Example\Example.cs" />
-    <Compile Include="Assets\My Scripts\Tabber-master\Reorderable-List\Example\GameObjectExample.cs" />
-    <Compile Include="Assets\My Scripts\Tabber-master\Reorderable-List\Example\NameOverride.cs" />
-    <Compile Include="Assets\My Scripts\Tabber-master\Reorderable-List\Example\NestedExample.cs" />
-    <Compile Include="Assets\My Scripts\Tabber-master\Reorderable-List\Example\RecursionTest.cs" />
-    <Compile Include="Assets\My Scripts\Tabber-master\Reorderable-List\Example\ScriptableObjectExample.cs" />
-    <Compile Include="Assets\My Scripts\Tabber-master\Reorderable-List\Example\SurrogateTest.cs" />
-    <Compile Include="Assets\My Scripts\Tabber-master\Reorderable-List\List\Attributes\ReorderableAttribute.cs" />
-    <Compile Include="Assets\My Scripts\Tabber-master\Reorderable-List\List\ReorderableArray.cs" />
-    <Compile Include="Assets\My Scripts\Tabber-master\Scripts\Tabber.cs" />
-    <None Include="Assets\E09 Character Controller\Assets\Standard Assets\Prototyping\Shaders\WorldCoordDiffuse.shader" />
+    <Compile Include="Assets\Player Login\Scripts\PlayerLogin.cs" />
+    <Compile Include="Assets\Player Profile\PlayerProfile.cs" />
+    <None Include="Assets\Character Selection\E09 Character Controller\Assets\Standard Assets\Prototyping\Shaders\WorldCoordDiffuse.shader" />
     <None Include="Assets\AddOn\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
     <None Include="Assets\AddOn\MLAPI\Lib\MLAPI.xml" />
     <None Include="Assets\AddOn\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />
@@ -105,7 +106,7 @@
     <None Include="Assets\AddOn\TextMesh Pro\Resources\Shaders\TMPro_Surface.cginc" />
     <None Include="Assets\AddOn\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
     <None Include="Assets\AddOn\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Masking.shader" />
-    <None Include="Assets\E09 Character Controller\ProjectSettings\ProjectVersion.txt" />
+    <None Include="Assets\Character Selection\E09 Character Controller\ProjectSettings\ProjectVersion.txt" />
     <None Include="Assets\AddOn\TextMesh Pro\Resources\Shaders\TMP_SDF Overlay.shader" />
     <None Include="Assets\AddOn\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Mobile.shader" />
     <None Include="Assets\AddOn\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />

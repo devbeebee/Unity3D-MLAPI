@@ -63,6 +63,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\AddOn\Tabber-master\Reorderable-List\Example\Editor\ExampleEditor.cs" />
+    <Compile Include="Assets\AddOn\Tabber-master\Reorderable-List\Example\Editor\GameObjectEditor.cs" />
+    <Compile Include="Assets\AddOn\Tabber-master\Reorderable-List\Example\Editor\NameOverrideEditor.cs" />
+    <Compile Include="Assets\AddOn\Tabber-master\Reorderable-List\Example\Editor\NestedChildDrawer.cs" />
+    <Compile Include="Assets\AddOn\Tabber-master\Reorderable-List\Example\Editor\SurrogateTestEditor.cs" />
+    <Compile Include="Assets\AddOn\Tabber-master\Reorderable-List\List\Editor\ReorderableDrawer.cs" />
+    <Compile Include="Assets\AddOn\Tabber-master\Reorderable-List\List\Editor\ReorderableList.cs" />
+    <Compile Include="Assets\AddOn\Tabber-master\Scripts\Editor\TabberEditor.cs" />
     <Compile Include="Assets\Editor\MLAPI\MLAPIEditor.cs" />
     <Compile Include="Assets\Editor\MLAPI\MLAPIProfiler.cs" />
     <Compile Include="Assets\Editor\MLAPI\NetworkedAnimatorEditor.cs" />
@@ -71,14 +79,6 @@
     <Compile Include="Assets\Editor\MLAPI\NetworkingManagerEditor.cs" />
     <Compile Include="Assets\Editor\MLAPI\PostProcessScene.cs" />
     <Compile Include="Assets\Editor\MLAPI\TrackedObjectEditor.cs" />
-    <Compile Include="Assets\My Scripts\Tabber-master\Reorderable-List\Example\Editor\ExampleEditor.cs" />
-    <Compile Include="Assets\My Scripts\Tabber-master\Reorderable-List\Example\Editor\GameObjectEditor.cs" />
-    <Compile Include="Assets\My Scripts\Tabber-master\Reorderable-List\Example\Editor\NameOverrideEditor.cs" />
-    <Compile Include="Assets\My Scripts\Tabber-master\Reorderable-List\Example\Editor\NestedChildDrawer.cs" />
-    <Compile Include="Assets\My Scripts\Tabber-master\Reorderable-List\Example\Editor\SurrogateTestEditor.cs" />
-    <Compile Include="Assets\My Scripts\Tabber-master\Reorderable-List\List\Editor\ReorderableDrawer.cs" />
-    <Compile Include="Assets\My Scripts\Tabber-master\Reorderable-List\List\Editor\ReorderableList.cs" />
-    <Compile Include="Assets\My Scripts\Tabber-master\Scripts\Editor\TabberEditor.cs" />
     <Reference Include="UnityEditor.TestRunner">
       <HintPath>C:/Users/devbeebee/Desktop/MLAPI_Tests/Unity3D-MLAPI/Library/ScriptAssemblies/UnityEditor.TestRunner.dll</HintPath>
     </Reference>
