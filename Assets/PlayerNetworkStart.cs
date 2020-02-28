@@ -9,5 +9,6 @@ public class PlayerNetworkStart : MonoBehaviour
     public void Start()
     {
         transform.SetParent(NetworkTransformObjects.Instance.PlayerParent);
+        transform.gameObject.name = PlayerProfile.Instance.Gamer_Profile.GamerTag;
     }
 }

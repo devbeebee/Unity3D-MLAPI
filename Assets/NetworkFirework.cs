@@ -14,9 +14,11 @@ public class NetworkFirework : NetworkedBehaviour
     public NetworkedVar<Vector3> startPosition;
     public NetworkedVar<Vector3> targetPosition;
     public NetworkedVar<float> speed;
+    public NetworkedVar<int> burstCount;
     public NetworkedVar<Color> colorEx;
     private System.Random rnd = new System.Random();
     // Start is called before the first frame update
+
     void Start()
     {
         Explosion.Stop();
@@ -32,7 +34,8 @@ public class NetworkFirework : NetworkedBehaviour
             Explosion.startColor = colorEx.Value;
             Explosion.transform.position = Trails.position;
             Trails.position = startPosition.Value;
-            Explosion.Emit(100);
+            burstCount = new NetworkedVar<int>(Random.Range(15, 250));
+            Explosion.Emit(burstCount.Value);
         }
     }
 }
