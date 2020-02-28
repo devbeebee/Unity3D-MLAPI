@@ -83,6 +83,7 @@
     <Compile Include="Assets\Network\MyNetworkManager.cs" />
     <Compile Include="Assets\Network\NetManagerHud.cs" />
     <Compile Include="Assets\NetworkFirework.cs" />
+    <Compile Include="Assets\NetworkTransformObjects.cs" />
     <Compile Include="Assets\Player Login\Scripts\PlayerLogin.cs" />
     <Compile Include="Assets\Player Pause\PlayerPauseMenu.cs" />
     <Compile Include="Assets\Player Profile\PlayerProfile.cs" />
