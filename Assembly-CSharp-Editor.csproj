@@ -307,36 +307,6 @@
     <Reference Include="MLAPI">
       <HintPath>C:/Users/devbeebee/Desktop/MLAPI_Tests/Unity3D-MLAPI/Assets/AddOn/MLAPI/Lib/MLAPI.dll</HintPath>
     </Reference>
-    <Reference Include="MySql.Web">
-      <HintPath>C:/Users/devbeebee/Desktop/MLAPI_Tests/Unity3D-MLAPI/Assets/MySql/MySql.Web.dll</HintPath>
-    </Reference>
-    <Reference Include="Google.Protobuf">
-      <HintPath>C:/Users/devbeebee/Desktop/MLAPI_Tests/Unity3D-MLAPI/Assets/MySql/Google.Protobuf.dll</HintPath>
-    </Reference>
-    <Reference Include="SshNet.Security.Cryptography">
-      <HintPath>C:/Users/devbeebee/Desktop/MLAPI_Tests/Unity3D-MLAPI/Assets/MySql/SshNet.Security.Cryptography.dll</HintPath>
-    </Reference>
-    <Reference Include="MySql.Data.EntityFramework">
-      <HintPath>C:/Users/devbeebee/Desktop/MLAPI_Tests/Unity3D-MLAPI/Assets/MySql/MySql.Data.EntityFramework.dll</HintPath>
-    </Reference>
-    <Reference Include="BouncyCastle.Crypto">
-      <HintPath>C:/Users/devbeebee/Desktop/MLAPI_Tests/Unity3D-MLAPI/Assets/MySql/BouncyCastle.Crypto.dll</HintPath>
-    </Reference>
-    <Reference Include="MySql.Data">
-      <HintPath>C:/Users/devbeebee/Desktop/MLAPI_Tests/Unity3D-MLAPI/Assets/MySql/MySql.Data.dll</HintPath>
-    </Reference>
-    <Reference Include="Ubiety.Dns.Core">
-      <HintPath>C:/Users/devbeebee/Desktop/MLAPI_Tests/Unity3D-MLAPI/Assets/MySql/Ubiety.Dns.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="MySQL.Data.EntityFrameworkCore">
-      <HintPath>C:/Users/devbeebee/Desktop/MLAPI_Tests/Unity3D-MLAPI/Assets/MySql/MySQL.Data.EntityFrameworkCore.dll</HintPath>
-    </Reference>
-    <Reference Include="Renci.SshNet">
-      <HintPath>C:/Users/devbeebee/Desktop/MLAPI_Tests/Unity3D-MLAPI/Assets/MySql/Renci.SshNet.dll</HintPath>
-    </Reference>
-    <Reference Include="MySQL.Data.EntityFrameworkCore.Design">
-      <HintPath>C:/Users/devbeebee/Desktop/MLAPI_Tests/Unity3D-MLAPI/Assets/MySql/MySQL.Data.EntityFrameworkCore.Design.dll</HintPath>
-    </Reference>
     <Reference Include="nunit.framework">
       <HintPath>C:/Users/devbeebee/Desktop/MLAPI_Tests/Unity3D-MLAPI/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll</HintPath>
     </Reference>

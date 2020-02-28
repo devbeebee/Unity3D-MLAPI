@@ -6,74 +6,95 @@ using System.Text;
 using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography;
-
-using MySql.Data;
-using MySql.Data.MySqlClient;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Registration : MonoBehaviour
 {
-    public string host, database, user, password;
-    public bool pooling = true;
+    private string url = "http://localhost/mydb";
 
-    private string connectionString;
-    private MySqlConnection con = null;
-    private MySqlCommand cmd = null;
-    private MySqlDataReader rdr = null;
+    /*/ public Text loginNick, loginPass, loginInfo, registerPass, registerPass2, registerNick, registerInfo;
+    /*/
+    [SerializeField]
+    private List<int> _pingTime = new List<int>();
 
-    private MD5 _md5Hash;
-
-    void Awake()
+    void Start()
     {
-        DontDestroyOnLoad(this.gameObject);
-        connectionString = "Server=" + host + ";Database=" + database + ";User=" + user + ";Password=" + password + ";Pooling=";
-        if (pooling)
+        this.StartCoroutine(PingUpdate());
+    }
+
+    IEnumerator PingUpdate()
+    {
+    RestartLoop:
+        var ping = new Ping("https://www.google.com/");
+
+        yield return new WaitForSeconds(1f);
+        while (!ping.isDone) yield return null;
+
+        Debug.Log(ping.time);
+        _pingTime.Add(ping.time);
+
+        goto RestartLoop;
+    }
+    /*/
+    public void Login()
+    {
+        if (!string.IsNullOrEmpty(loginNick.text) && !string.IsNullOrEmpty(loginPass.text))
         {
-            connectionString += "True";
+            StartCoroutine(LoginSystem());
         }
         else
         {
-            connectionString += "False";
-        }
-        try
-        {
-            con = new MySqlConnection(connectionString);
-            con.Open();
-            Debug.Log("Mysql state: " + con.State);
-
-            string sql = "SELECT * FROM clothes";
-            cmd = new MySqlCommand(sql, con);
-        }
-        catch (Exception e)
-        {
-            Debug.Log(e);
-        }
-    }
-    void onApplicationQuit()
-    {
-        if (con != null)
-        {
-            if (con.State.ToString() != "Closed")
-            {
-                con.Close();
-                Debug.Log("Mysql connection closed");
-            }
-            con.Dispose();
+            loginInfo.text = "Prosze podać wszystkie dane";
         }
     }
 
-    public string getFirstShops()
+    IEnumerator LoginSystem()
     {
-        using (rdr = cmd.ExecuteReader())
+        yield return new WaitForEndOfFrame();
+        WWWForm wwwForm = new WWWForm();
+        wwwForm.AddField("nick", loginNick.text);
+        wwwForm.AddField("pass", loginPass.text);
+        WWW www = new WWW(url + "/login.php", wwwForm);
+        yield return www;
+
+        loginInfo.text = www.text;
+        if (loginInfo.text == "Zalogowano pomyślnie")
         {
-            while (rdr.Read())
-            {
-                return rdr[0] + " -- " + rdr[1];
-            }
+            SceneManager.LoadScene("Game");
         }
-        return "empty";
+
     }
-    public string GetConnectionState()
+
+    public void Register()
     {
-        return con.State.ToString();
+        if (!string.IsNullOrEmpty(registerNick.text) && !string.IsNullOrEmpty(registerPass.text) && !string.IsNullOrEmpty(registerPass2.text))
+        {
+            if (registerPass.text == registerPass2.text)
+            {
+                StartCoroutine(RegisterSystem());
+            }
+            else
+                registerInfo.text = "Podane hasła są różne";
+
+        }
+        else
+        {
+            registerInfo.text = "Prosze podać wszystkie dane";
+        }
     }
+    IEnumerator RegisterSystem()
+    {
+        yield return new WaitForEndOfFrame();
+        WWWForm wwwForm = new WWWForm();
+        wwwForm.AddField("nick", registerNick.text);
+        wwwForm.AddField("pass", registerPass.text);
+        WWW www = new WWW(url + "/register.php", wwwForm);
+        yield return www;
+
+        registerInfo.text = www.text;
+
+
+    }
+    /*/
 }

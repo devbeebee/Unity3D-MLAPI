@@ -103,13 +103,9 @@
     <None Include="Assets\AddOn\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
     <None Include="Assets\AddOn\MLAPI\Lib\MLAPI.xml" />
     <None Include="Assets\AddOn\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />
-    <None Include="Assets\MySql\MySql.Web.xml" />
-    <None Include="Assets\MySql\MySQL.Data.EntityFrameworkCore.Design.xml" />
     <None Include="Assets\AddOn\TextMesh Pro\Resources\Shaders\TMP_Bitmap.shader" />
-    <None Include="Assets\MySql\MySql.Data.EntityFramework.xml" />
     <None Include="Assets\SampleScenes\Shaders\Skybox-Procedural.shader" />
     <None Include="Assets\AddOn\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
-    <None Include="Assets\MySql\MySql.Data.xml" />
     <None Include="Assets\AddOn\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface.shader" />
     <None Include="Assets\AddOn\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
     <None Include="Assets\AddOn\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
@@ -117,7 +113,6 @@
     <None Include="Assets\AddOn\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
     <None Include="Assets\AddOn\TextMesh Pro\Resources\Shaders\TMPro_Properties.cginc" />
     <None Include="Assets\AddOn\TextMesh Pro\Resources\Shaders\TMPro_Surface.cginc" />
-    <None Include="Assets\MySql\MySQL.Data.EntityFrameworkCore.xml" />
     <None Include="Assets\AddOn\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
     <None Include="Assets\AddOn\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Masking.shader" />
     <None Include="Assets\AddOn\TextMesh Pro\Resources\Shaders\TMP_SDF Overlay.shader" />
@@ -331,36 +326,6 @@
     </Reference>
     <Reference Include="MLAPI">
       <HintPath>C:/Users/devbeebee/Desktop/MLAPI_Tests/Unity3D-MLAPI/Assets/AddOn/MLAPI/Lib/MLAPI.dll</HintPath>
-    </Reference>
-    <Reference Include="MySql.Web">
-      <HintPath>C:/Users/devbeebee/Desktop/MLAPI_Tests/Unity3D-MLAPI/Assets/MySql/MySql.Web.dll</HintPath>
-    </Reference>
-    <Reference Include="Google.Protobuf">
-      <HintPath>C:/Users/devbeebee/Desktop/MLAPI_Tests/Unity3D-MLAPI/Assets/MySql/Google.Protobuf.dll</HintPath>
-    </Reference>
-    <Reference Include="SshNet.Security.Cryptography">
-      <HintPath>C:/Users/devbeebee/Desktop/MLAPI_Tests/Unity3D-MLAPI/Assets/MySql/SshNet.Security.Cryptography.dll</HintPath>
-    </Reference>
-    <Reference Include="MySql.Data.EntityFramework">
-      <HintPath>C:/Users/devbeebee/Desktop/MLAPI_Tests/Unity3D-MLAPI/Assets/MySql/MySql.Data.EntityFramework.dll</HintPath>
-    </Reference>
-    <Reference Include="BouncyCastle.Crypto">
-      <HintPath>C:/Users/devbeebee/Desktop/MLAPI_Tests/Unity3D-MLAPI/Assets/MySql/BouncyCastle.Crypto.dll</HintPath>
-    </Reference>
-    <Reference Include="MySql.Data">
-      <HintPath>C:/Users/devbeebee/Desktop/MLAPI_Tests/Unity3D-MLAPI/Assets/MySql/MySql.Data.dll</HintPath>
-    </Reference>
-    <Reference Include="Ubiety.Dns.Core">
-      <HintPath>C:/Users/devbeebee/Desktop/MLAPI_Tests/Unity3D-MLAPI/Assets/MySql/Ubiety.Dns.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="MySQL.Data.EntityFrameworkCore">
-      <HintPath>C:/Users/devbeebee/Desktop/MLAPI_Tests/Unity3D-MLAPI/Assets/MySql/MySQL.Data.EntityFrameworkCore.dll</HintPath>
-    </Reference>
-    <Reference Include="Renci.SshNet">
-      <HintPath>C:/Users/devbeebee/Desktop/MLAPI_Tests/Unity3D-MLAPI/Assets/MySql/Renci.SshNet.dll</HintPath>
-    </Reference>
-    <Reference Include="MySQL.Data.EntityFrameworkCore.Design">
-      <HintPath>C:/Users/devbeebee/Desktop/MLAPI_Tests/Unity3D-MLAPI/Assets/MySql/MySQL.Data.EntityFrameworkCore.Design.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.3.0f3/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>
