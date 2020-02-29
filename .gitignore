@@ -30,7 +30,8 @@ ExportedObj/
 
 # Unity3D Generated File On Crash Reports
 sysinfo.txt
-
+/Logs
+/Logs/Packages-Update.log
 /PHP Stuff/xampp/apache/bin
 /PHP Stuff/xampp/apache/conf
 /PHP Stuff/xampp/anonymous
