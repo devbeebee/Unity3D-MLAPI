@@ -84,7 +84,10 @@
     <Compile Include="Assets\Network\NetManagerHud.cs" />
     <Compile Include="Assets\NetworkFirework.cs" />
     <Compile Include="Assets\NetworkTransformObjects.cs" />
-    <Compile Include="Assets\PHPSERVER.cs" />
+    <Compile Include="Assets\PHP_AddHighScore.cs" />
+    <Compile Include="Assets\PHP_AddServer.cs" />
+    <Compile Include="Assets\PHP_GetHighScores.cs" />
+    <Compile Include="Assets\PHP_ListServers.cs" />
     <Compile Include="Assets\Player Login\Scripts\PlayerLogin.cs" />
     <Compile Include="Assets\Player Pause\PlayerPauseMenu.cs" />
     <Compile Include="Assets\Player Profile\PlayerProfile.cs" />
@@ -101,6 +104,7 @@
     <Compile Include="Assets\Utils\ExtensionMethods.cs" />
     <Compile Include="Assets\Utils\MyGUI_Instance.cs" />
     <Compile Include="Assets\Utils\MyStringExtenstions.cs" />
+    <Compile Include="Assets\WebRequestExtension.cs" />
     <None Include="Assets\AddOn\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
     <None Include="Assets\AddOn\MLAPI\Lib\MLAPI.xml" />
     <None Include="Assets\AddOn\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />

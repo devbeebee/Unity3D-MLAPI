@@ -17,6 +17,7 @@
   <a href="/mydb/home.html">Home</a>
   <a href="/mydb/totalplayers.php">Player</a>
   <a href="/mydb/servers.php">Servers</a>
+  <a href="/mydb/highscores.php">High Scores</a>
   <a href="/mydb/playerProfile.html" class="right">Profile</a>
 </div>
 
@@ -31,12 +32,10 @@
 <p>name the data base demo</a></p>
 
 <img src="/mydb/img/createdatabasename.jpg" alt="naming the data base">
-<p>INSERT INTO `myguests` (`id`, `firstname`, `lastname`, `email`, `reg_date`) VALUES ('1', 'Foo', 'Bar', 'FooBar@something.com', '2020-02-29 09:58:22');
-</p>
 <p>
 CREATE TABLE gameservers ( id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, server_name VARCHAR(30) NOT NULL, server_ip VARCHAR(30) NOT NULL, server_password VARCHAR(50), server_lastping TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP )
-</p>
-<p>
+
+
 INSERT INTO `gameservers` (`id`, `server_name`, `server_ip`, `server_password`, `server_lastping`) VALUES ('2', 'Test_Server_2', 'N/A', '4321', current_timestamp());
 </p>
 </body>
