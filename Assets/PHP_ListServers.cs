@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Networking;
 using TMPro;
 
@@ -18,6 +19,8 @@ public class serverphpclass
 public class PHP_ListServers : MonoBehaviour
 {
     [SerializeField]
+    Slider refreshPage;
+    [SerializeField]
     TextMeshProUGUI displayText;
     [SerializeField]
     private string URL = "http://localhost/mydb/servers.php";
@@ -31,9 +34,16 @@ public class PHP_ListServers : MonoBehaviour
     List<string> fields = new List<string>();
     [SerializeField]
     List<serverphpclass> phpfields = new List<serverphpclass>();
+    [SerializeField]
+    Transform UiParent;
+    [SerializeField]
+    GameObject UIelement;
     void Start()
     {
         StartCoroutine(LoginEnumerator());
+        StartCoroutine(ServerListRepeat());
+        refreshPage.maxValue = 30;
+        refreshPage.value = 0;
     }
     IEnumerator LoginEnumerator()
     {
@@ -51,9 +61,24 @@ public class PHP_ListServers : MonoBehaviour
             }
         }
     }
-
-    void ListProperty(string pageToEdit)
+    IEnumerator ServerListRepeat()
     {
+        while (true)
+        {
+             for (int i = 0; i < 30; i++)
+            {
+                yield return new WaitForSeconds(1);
+                refreshPage.value = i;
+            }
+            yield return LoginEnumerator();
+        }
+    }
+        void ListProperty(string pageToEdit)
+    {
+        foreach (Transform item in UiParent)
+        {
+            Destroy(item.gameObject);
+        }
         List<string> Extract = ExtractFromBody(pageToEdit, propertyDiv, propertyDivEnd);
         string st = "";
         foreach (var item in Extract)
@@ -63,6 +88,7 @@ public class PHP_ListServers : MonoBehaviour
         Extract = ExtractFromBody(st, "{", "}");
         st = "";
         int x = 0;
+        Extract.Reverse();
         foreach (var item in Extract)
         {
             fields = ExtractFromBody(item, "[", "]");
@@ -74,8 +100,10 @@ public class PHP_ListServers : MonoBehaviour
                 {
                     propertyFields.Add(fields[i]);
 
-                    displayText.text +=fields[i];
+                    displayText.text += fields[i];
                 }
+               
+
             }
             else
             {
@@ -85,11 +113,19 @@ public class PHP_ListServers : MonoBehaviour
                 php.serverIP = fields[2];
                 php.serverPassword = fields[3];
                 php.serverLastPing = fields[4];
+
             }
             if (x != 0)
             {
                 phpfields.Add(php);
             }
+            GameObject go = Instantiate(UIelement, UiParent);
+
+            go.transform.GetChild(0).GetComponent<TextMeshProUGUI>().SetText(fields[0]);
+            go.transform.GetChild(1).GetComponent<TextMeshProUGUI>().SetText(fields[1]);
+            go.transform.GetChild(2).GetComponent<TextMeshProUGUI>().SetText(fields[2]);
+            go.transform.GetChild(3).GetComponent<TextMeshProUGUI>().SetText(fields[3]);
+            go.transform.GetChild(4).GetComponent<TextMeshProUGUI>().SetText(fields[4]);
             x++;
         }
 

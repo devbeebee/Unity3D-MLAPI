@@ -18,9 +18,12 @@ public class PHP_AddHighScore : MonoBehaviour
             _instance = this;
         }
     }
-    void Start()
+    public void AddRandomScore()
     {
-        StartCoroutine(PostScores("U3D", 9999));
+        int s = Random.Range(1, 99999);
+        string n = $"Unity";
+
+        StartCoroutine(PostScores(n,s));
     }
 
     IEnumerator PostScores(string name, int score)

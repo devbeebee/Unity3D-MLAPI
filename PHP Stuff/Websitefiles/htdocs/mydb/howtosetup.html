@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="stylesheet" type="text/css" href="/mydb/styles/mainstyle.css">
+<title>Page Title</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<link rel="stylesheet" href="/mydb/styles/codestyles/dracula.css">
+<script src="/mydb/javafiles/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+<style>
+body {font-family: Arial;}
+/* Style the tab */
+.tab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+}
+/* Style the buttons inside the tab */
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 17px;
+}
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #ddd;
+}
+/* Create an active/current tablink class */
+.tab button.active {
+  background-color: #ccc;
+}
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>MLAPI + UNITY + PHP</h1>
+  <h2>Setup</h2>
+</div>
+
+<div class="navbar">
+  <a href="/mydb/home.html">Home</a>
+  <a href="/mydb/totalplayers.php">Player</a>
+  <a href="/mydb/servers.php">Servers</a>
+  <a href="/mydb/highscores.php">High Scores</a>
+  <a href="/mydb/playerProfile.html" class="right">Profile</a>
+</div>
+<br>
+<div class="tab">
+  <button class="tablinks" onclick="openTab(event, 'Localhost')" id="defaultOpen">Localhost</button>
+  <button class="tablinks" onclick="openTab(event, 'Unity3D')">Unity3D</button>
+  <button class="tablinks" onclick="openTab(event, 'MLAPI')">MLAPI</button>
+  <button class="tablinks" onclick="openTab(event, 'TCP')">TCP</button>
+</div>
+
+<!-- Local Host -->
+
+<div id="Localhost" class="tabcontent">
+  <h3>How To Setup Localhost</h3>
+  <p>TBA</p> 
+  <h3>Add Highscores Database</h3> 
+  <p>TBA</p> 
+  <h3>Add Server List Database</h3>
+  <p>TBA</p> 
+
+</div>
+
+
+<!-- Unity 3D -->
+
+<div id="Unity3D" class="tabcontent">
+  <h3>How To Setup Unity3D</h3>
+  <p>TBA</p> 
+</div>
+
+<!-- MLAPI -->
+
+<div id="MLAPI" class="tabcontent">
+  <h3>How To Setup MLAPI</h3>
+  <p>Edit Settings Here TBA</p>
+</div>
+
+<!-- TCP -->
+
+<div id="TCP" class="tabcontent">
+  <h3>How To Setup TCP Server</h3>
+  <p>Edit Settings Here TBA</p>
+
+<h4>Using:</h4>
+<pre><code class="cs">
+
+using MLAPI;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Net;
+using System.Net.Sockets;
+using UnityEngine;
+
+</code></pre>
+<pre><code class="cs">
+
+public class ServerClient
+{
+  public TcpClient tcp;
+  public string clientName;
+  public ServerClient(TcpClient client)
+  {
+    clientName = "Guest";
+    tcp = client;
+  }
+}
+
+</code></pre>
+<pre><code class="cs">
+
+public class ServerTcp : NetworkedBehaviour
+{
+    List<ServerClient> Clients;
+    List<ServerClient> ClientsDC;
+    public string  ip = "127.0.0.1";
+    public int port = 6321;
+    TcpListener server;
+    bool serverStarted = false;
+    private void Start()
+    {
+        Clients = new List<ServerClient>();
+        ClientsDC = new List<ServerClient>();
+        try
+        {
+            ip = $"{GetIPAddress(System.Net.Dns.GetHostName())}";
+            server = new TcpListener(IPAddress.Any, port);
+            server.Start();
+            StartedListening();
+            serverStarted = true;
+            Debug.Log($"{server.LocalEndpoint}");
+            Debug.Log($"{server.Server.RemoteEndPoint}");
+
+        }
+        catch (Exception e)
+        {
+            Debug.Log($"Socket Error:{e.Message}");
+        }
+    }
+    public static string GetIPAddress(string hostname)
+    {
+        IPHostEntry host;
+        host = Dns.GetHostEntry(hostname);
+
+        foreach (IPAddress ip in host.AddressList)
+        {
+            if (ip.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork)
+            {
+                return ip.ToString();
+            }
+        }
+        return string.Empty;
+    }
+        private void Update()
+    {
+        if (!serverStarted)
+        {
+            return;
+        }
+        foreach (ServerClient c in Clients)
+        {
+            if (!IsConnected(c.tcp))
+            {
+                c.tcp.Close();
+                ClientsDC.Add(c);
+                continue;
+            }
+            else
+            {
+                NetworkStream s = c.tcp.GetStream();
+                if (s.DataAvailable)
+                {
+                    StreamReader rdr = new StreamReader(s, true);
+                    string data = rdr.ReadLine();
+                    if (data != null)
+                    {
+                        OnIncomingData(c, data);
+                    }
+                }
+            }
+        }
+    }
+
+    private void OnIncomingData(ServerClient c, string data)
+    {
+        Debug.Log($"Client Name: {c.clientName} : {data}");
+    }
+
+    private void StartedListening()
+    {
+        server.BeginAcceptSocket(AcceptTcpClient, server);
+    }
+    bool IsConnected(TcpClient tcpc)
+    {
+        try
+        {
+            if (tcpc!=null && tcpc.Client != null && tcpc.Client.Connected)
+            {
+                if (tcpc.Client.Poll(0,SelectMode.SelectRead))
+                {
+                    return !(tcpc.Client.Receive(new byte[1], SocketFlags.Peek) == 0);
+                }
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        catch 
+        {
+            return false;
+        }
+    }
+    void AcceptTcpClient(IAsyncResult ar)
+    {
+        TcpListener tcpl = (TcpListener)ar.AsyncState;
+        Clients.Add(new ServerClient(tcpl.EndAcceptTcpClient(ar)));
+    }
+}
+
+</code></pre>
+
+</div>
+
+
+<script src="/mydb/myscripts.js"></script>
+<script>document.getElementById("defaultOpen").click();</script>
+
+</body>
+</html>

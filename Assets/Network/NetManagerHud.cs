@@ -1,7 +1,4 @@
 ﻿using MLAPI;
-using System.Collections.Generic;
-using UnityEngine;
-
 public class NetManagerHud : NetworkedBehaviour
 {
     public void ConnectAsClient()

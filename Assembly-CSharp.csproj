@@ -80,6 +80,7 @@
     <Compile Include="Assets\Chat\Players In Session\MLAPI_PlayersInSession.cs" />
     <Compile Include="Assets\CursorController.cs" />
     <Compile Include="Assets\FireworkNetworkedObject.cs" />
+    <Compile Include="Assets\IPManager.cs" />
     <Compile Include="Assets\Network\MyNetworkManager.cs" />
     <Compile Include="Assets\Network\NetManagerHud.cs" />
     <Compile Include="Assets\NetworkFirework.cs" />
@@ -101,6 +102,8 @@
     <Compile Include="Assets\SampleScenes\Scripts\ParticleSceneControls.cs" />
     <Compile Include="Assets\SampleScenes\Scripts\PlaceTargetWithMouse.cs" />
     <Compile Include="Assets\SampleScenes\Scripts\SlowMoButton.cs" />
+    <Compile Include="Assets\Scenes\TCP_Client.cs" />
+    <Compile Include="Assets\ServerTcp.cs" />
     <Compile Include="Assets\Utils\ExtensionMethods.cs" />
     <Compile Include="Assets\Utils\MyGUI_Instance.cs" />
     <Compile Include="Assets\Utils\MyStringExtenstions.cs" />
